@@ -8,6 +8,9 @@ source /usr/lib/hassio-addons/base.sh
 
 mkdir -p /data/log
 
+# Fix the permissions on the logrotate script so logs get cleared
+chmod 644 /etc/logrotate.d/pihole
+
 if ! hass.file_exists '/data/log/pihole.log'; then
     touch /data/log/pihole.log
     chmod 644 /data/log/pihole.log
